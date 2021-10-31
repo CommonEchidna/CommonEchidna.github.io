@@ -1,20 +1,12 @@
 import dash
-import dash_core_components as dcc
+from dash import dcc
 import plotly.express as px
 from dash import html
 import math
 from dash.dependencies import Input, Output
 
 
-
 app=dash.Dash(__name__)
-
-
-def getplot(n):
-    xarr=[math.cos(2*math.pi*i/n) for i in range(n+1)]
-    yarr=[math.sin(2*math.pi*i/n) for i in range(n+1)]
-    fig=px.line(x=xarr,y=yarr)
-    return fig
 
 app.layout = html.Div(children=[
     html.H1(children='Circle Graph'),
@@ -31,7 +23,7 @@ app.layout = html.Div(children=[
     dcc.Slider(
         id='my-slider',
         min=3,
-        max=1000,
+        max=100,
         step=1,
         value=3,
         updatemode='drag'
